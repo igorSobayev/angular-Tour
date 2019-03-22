@@ -12,8 +12,6 @@ export class HeroesComponent implements OnInit {
 
   // array con los heroes
   heroes: Hero[];
-  // heroe vacio por defecto pero que se va a llenar cuando sea seleccionado uno
-  selectedHero: Hero;
 
   constructor(private heroService: HeroService) { }
 
@@ -21,14 +19,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  // método de asignación de un heroe
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
+
 
 }
